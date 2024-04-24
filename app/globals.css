@@ -10,9 +10,15 @@
 
 @layer components {
   .gallery-image {
-    @apply w-full h-full object-cover group-hover:scale-[1.1] transform transition duration-[1s];
+    @apply w-full h-full object-cover group-hover:scale-[1.1] transform transition duration-[3s];
   }
   .gallery-image-container {
     @apply overflow-hidden cursor-pointer rounded-md;
   }
+  .portable-style * {
+    @apply mb-4;
+  }
+    .portable-style p {
+      @apply px-3
+    }
 }
