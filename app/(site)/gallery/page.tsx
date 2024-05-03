@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { getGallery } from "@/sanity/utils/fetchGallery";
-import GalleryComponent from "../components/gallery/gallery";
+import GalleryComponent from "../../components/gallery/gallery";
 
 const Gallery: FC = async () => {
   const data = await getGallery();

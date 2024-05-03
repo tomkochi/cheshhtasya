@@ -4,6 +4,7 @@ export interface IHero {
   image: Image;
   _type: string;
   caption: string;
+  whatsappNumber: string;
 }
 
 export interface IVideo {

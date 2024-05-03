@@ -1,4 +1,4 @@
-import Header from "@/app/(site)/components/common/header";
+import Header from "@/app/components/common/header";
 import type { Metadata } from "next";
 
 export default function RootLayout({

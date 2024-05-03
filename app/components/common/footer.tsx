@@ -2,7 +2,6 @@
 import { FC, useEffect, useState } from "react";
 
 import Image from "next/image";
-import { getOther } from "@/sanity/utils/fetchOther";
 
 interface Address {
   contactPhone: string;

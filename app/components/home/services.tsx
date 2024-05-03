@@ -18,6 +18,7 @@ const Services: FC<ServicesProps> = ({ data: { service } }) => {
         {service.map((d) => {
           return (
             <Item
+              key={d._key}
               _key={d._key}
               icon={d.icon}
               heading={d.heading}

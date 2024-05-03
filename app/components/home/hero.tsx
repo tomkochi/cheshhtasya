@@ -9,7 +9,7 @@ interface HeroProps {
   data: IHero;
 }
 
-const Hero: FC<HeroProps> = ({ data: { caption, image } }) => {
+const Hero: FC<HeroProps> = ({ data: { caption, image, whatsappNumber } }) => {
   return (
     <>
       <div
@@ -23,7 +23,7 @@ const Hero: FC<HeroProps> = ({ data: { caption, image } }) => {
           </h1>
         </div>
         <a
-          href="https://wa.me/+919037004066"
+          href={`https://wa.me/${whatsappNumber}`}
           target="_blank"
           className="absolute right-4 bottom-3 w-[40px] md:w-[52px] hover:grayscale-[0.5] duration-150 hover: shadow-xl"
         >
@@ -31,7 +31,6 @@ const Hero: FC<HeroProps> = ({ data: { caption, image } }) => {
             src="/whatsapp-icon.svg"
             width={52}
             height={52}
-            layout="responsive"
             alt="whatsApp icon"
           />
         </a>

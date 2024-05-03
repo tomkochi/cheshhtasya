@@ -29,9 +29,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={roboto.className}>
         <div className="flex flex-col min-h-screen">
-          <Header />
           <div className="grow">{children}</div>
-          <Footer data={otherData} />
         </div>
       </body>
     </html>
