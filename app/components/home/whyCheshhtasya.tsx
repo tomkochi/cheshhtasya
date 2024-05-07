@@ -29,6 +29,10 @@ const Why: FC = () => {
     },
   ];
 
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   return (
     <div className="w-full max-w-5xl mx-auto px-3 my-14">
       <h3

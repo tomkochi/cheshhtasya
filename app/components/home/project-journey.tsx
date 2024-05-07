@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -61,6 +61,11 @@ const ProjectJourney: FC = () => {
       ],
     },
   ];
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   return (
     <div className="bg-bg-gray">
       <div className="w-full max-w-5xl mx-auto py-20 px-3">

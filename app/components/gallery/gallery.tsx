@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Popup } from "../common/Popup";
 import { urlForImage } from "@/sanity/lib/image";
 import { Image } from "sanity";
@@ -21,6 +21,11 @@ interface GalleryProps {
 
 const GalleryComponent: FC<GalleryProps> = ({ images }) => {
   const [imageIndex, setImageIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   return (
     <>
       <div className="grid md:grid-cols-3 gap-3 px-4">

@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { ITestimony } from "@/app/types/homeTypes";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -10,6 +10,10 @@ interface TestimonyProps {
 }
 
 const Testimony: FC<TestimonyProps> = ({ data }) => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   return (
     <div className="w-full max-w-6xl mx-auto px-3 my-14">
       <h2 className="text-3xl text-primary text-center font-semibold mb-14">

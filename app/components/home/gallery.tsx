@@ -3,7 +3,7 @@
 import { IPickedGallery } from "@/app/types/homeTypes";
 import { urlForImage } from "@/sanity/lib/image";
 import Link from "next/link";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Popup } from "../common/Popup";
 import Image from "next/image";
 import Aos from "aos";
@@ -20,6 +20,10 @@ const Gallery: FC<GalleryProps> = ({ data: { pickedGallery } }) => {
     urlForImage(pickedGallery[i]?.image?.asset?._ref || "");
 
   const [imageIndex, setImageIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
   return (
     <div className="w-full max-w-7xl mx-auto px-3 my-14">

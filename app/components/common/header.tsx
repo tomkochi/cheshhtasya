@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Quote from "./quote";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FC } from "react";
 import { usePathname } from "next/navigation";
 import Aos from "aos";
@@ -22,6 +22,10 @@ const Header: FC = () => {
     setShowQuote(show);
     // document.body.style.overflow = show ? "hidden" : "auto";
   };
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
   return (
     <div className="sticky top-0 z-50 bg-white">

@@ -101,6 +101,10 @@ const Quote: FC<QuoteProps> = ({ showQuote }) => {
       });
   };
 
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   const inputStyle =
     "text-primary h-9 px-2 py-4 outline-none border-b border-1 mb-4";
   return (
