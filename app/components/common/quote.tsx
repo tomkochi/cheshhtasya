@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { FC, FormEvent, useEffect, useState } from "react";
 import axios from "axios";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 interface QuoteProps {
   showQuote: (showQuote: boolean) => void;
@@ -9,19 +11,20 @@ interface QuoteProps {
 const Quote: FC<QuoteProps> = ({ showQuote }) => {
   const [disabled, setDisabled] = useState<boolean>(false);
   const [contactMessage, setContactMessage] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [mobile, setMobile] = useState<string>("");
+  const [whatsapp, setWhatsapp] = useState<boolean>(true);
+  const [pin, setPin] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [coperation, setCoporation] = useState<string>("");
 
   const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (document.getElementById("caorporation").value) {
+    if (coperation) {
       return;
     }
     setDisabled(true);
-    const pName = document.getElementById("name").value;
-    const pEmail = document.getElementById("email").value;
-    const pMobile = document.getElementById("mobile").value;
-    const pWhatsapp = document.getElementById("whatsapp").checked;
-    const pPin = document.getElementById("pin").value;
-    const pMessage = document.getElementById("message").value;
     const content = `
       <html>
         <head>
@@ -40,39 +43,35 @@ const Quote: FC<QuoteProps> = ({ showQuote }) => {
             <tbody>
               <tr>
                 <td>Name</td>
-                <td>${pName}</td>
-              </tr>
-              <tr>
-                <td>Name</td>
-                <td>${pName}</td>
+                <td>${name}</td>
               </tr>
               <tr>
                 <td>Email</td>
-                <td>${pEmail}</td>
+                <td>${email}</td>
               </tr>
               <tr>
                 <td>Mobile</td>
-                <td>${pMobile}</td>
+                <td>${mobile}</td>
               </tr>
               <tr>
                 ${
-                  pWhatsapp
+                  whatsapp
                     ? '<td style="color: white;  background: green">WhatsApp</td>'
                     : '<td style="color: white;  background: red">Allowed</td>'
                 }
                 ${
-                  pWhatsapp
+                  whatsapp
                     ? '<td style="color: white;  background: green">ALLOWED</td>'
                     : '<td style="color: white;  background: red">NOT ALLOWED</td>'
                 }
               </tr>
               <tr>
                 <td>PIN</td>
-                <td>${pPin}</td>
+                <td>${pin}</td>
               </tr>
               <tr>
                 <td>Message</td>
-                <td>${pMessage}</td>
+                <td>${message}</td>
               </tr>
             </tbody>
           </table>
@@ -102,21 +101,12 @@ const Quote: FC<QuoteProps> = ({ showQuote }) => {
       });
   };
 
-  useEffect(() => {
-    const checkbox = document.getElementById(
-      "whatsapp"
-    ) as HTMLInputElement | null;
-    if (checkbox) {
-      checkbox.checked = true;
-    }
-  }, []);
-
   const inputStyle =
     "text-primary h-9 px-2 py-4 outline-none border-b border-1 mb-4";
   return (
     <div className="fixed left-0 top-0 w-full h-full bg-black bg-opacity-60 p-3 md:p-12 z-50">
       <div className="flex justify-center items-center w-full h-full">
-        <div className="w-full max-w-md bg-white rounded-md">
+        <div className="w-full max-w-md bg-white rounded-md" data-aos="fade">
           <div className="w-full flex justify-end p-2 pt-2 pb-0 opacity-70">
             <button
               type="button"
@@ -139,6 +129,8 @@ const Quote: FC<QuoteProps> = ({ showQuote }) => {
                 name="name"
                 id="name"
                 placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className={inputStyle}
                 required
               />
@@ -147,6 +139,8 @@ const Quote: FC<QuoteProps> = ({ showQuote }) => {
                 name="email"
                 id="email"
                 placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className={inputStyle}
                 required
               />
@@ -155,6 +149,8 @@ const Quote: FC<QuoteProps> = ({ showQuote }) => {
                 name="mobile"
                 id="mobile"
                 placeholder="Mobile"
+                value={mobile}
+                onChange={(e) => setMobile(e.target.value)}
                 className={inputStyle}
                 required
               />
@@ -172,6 +168,8 @@ const Quote: FC<QuoteProps> = ({ showQuote }) => {
                     type="checkbox"
                     name="whatsapp"
                     id="whatsapp"
+                    checked={whatsapp}
+                    onChange={(e) => setWhatsapp(e.target.checked)}
                     className="sr-only peer"
                   />
                   <div
@@ -189,6 +187,8 @@ const Quote: FC<QuoteProps> = ({ showQuote }) => {
                 name="pin"
                 id="pin"
                 placeholder="Postal Code"
+                value={pin}
+                onChange={(e) => setPin(e.target.value)}
                 className={inputStyle}
               />
               <input
@@ -196,6 +196,8 @@ const Quote: FC<QuoteProps> = ({ showQuote }) => {
                 name="caorporation"
                 id="caorporation"
                 placeholder="caorporation"
+                value={coperation}
+                onChange={(e) => setCoporation(e.target.value)}
                 className="text-primary h-0 outline-none"
                 tabIndex={-1}
               />
@@ -203,6 +205,8 @@ const Quote: FC<QuoteProps> = ({ showQuote }) => {
                 name="message"
                 id="message"
                 placeholder="Any extra info"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 className="text-primary h-24 px-2 py-4 outline-none border-b border-1 mb-1 resize-none"
               ></textarea>
               <div className="text-[9px] text-secondary mb-3">
@@ -244,7 +248,7 @@ const Quote: FC<QuoteProps> = ({ showQuote }) => {
               <div className="flex w-full justify-end">
                 <button
                   onClick={() => {
-                    setContactMessage(null);
+                    setContactMessage("");
                     setDisabled(false);
                     showQuote(false);
                   }}

@@ -6,6 +6,8 @@ import Quote from "./quote";
 import { useState } from "react";
 import { FC } from "react";
 import { usePathname } from "next/navigation";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 interface LinkItem {
   title: string;

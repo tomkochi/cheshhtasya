@@ -6,6 +6,8 @@ import Link from "next/link";
 import { FC, useState } from "react";
 import { Popup } from "../common/Popup";
 import Image from "next/image";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 interface GalleryProps {
   data: {
@@ -32,6 +34,7 @@ const Gallery: FC<GalleryProps> = ({ data: { pickedGallery } }) => {
             width={600}
             height={300}
             alt={pickedGallery[0].alt || ""}
+            data-aos="fade-up"
           />
         </div>
         <div
@@ -44,6 +47,7 @@ const Gallery: FC<GalleryProps> = ({ data: { pickedGallery } }) => {
             width={600}
             height={300}
             alt={pickedGallery[1].alt || ""}
+            data-aos="fade-up"
           />
         </div>
         <div
@@ -56,6 +60,7 @@ const Gallery: FC<GalleryProps> = ({ data: { pickedGallery } }) => {
             width={600}
             height={300}
             alt={pickedGallery[2].alt || ""}
+            data-aos="fade-up"
           />
         </div>
         <div
@@ -68,6 +73,7 @@ const Gallery: FC<GalleryProps> = ({ data: { pickedGallery } }) => {
             width={600}
             height={300}
             alt={pickedGallery[3].alt || ""}
+            data-aos="fade-up"
           />
         </div>
         <div
@@ -80,6 +86,7 @@ const Gallery: FC<GalleryProps> = ({ data: { pickedGallery } }) => {
             width={600}
             height={300}
             alt={pickedGallery[4].alt || ""}
+            data-aos="fade-up"
           />
         </div>
         <div
@@ -92,6 +99,7 @@ const Gallery: FC<GalleryProps> = ({ data: { pickedGallery } }) => {
             width={600}
             height={300}
             alt={pickedGallery[5].alt || ""}
+            data-aos="fade-up"
           />
         </div>
         <div
@@ -104,6 +112,7 @@ const Gallery: FC<GalleryProps> = ({ data: { pickedGallery } }) => {
             width={600}
             height={300}
             alt={pickedGallery[6].alt || ""}
+            data-aos="fade-up"
           />
         </div>
         <div
@@ -116,18 +125,21 @@ const Gallery: FC<GalleryProps> = ({ data: { pickedGallery } }) => {
             width={600}
             height={300}
             alt={pickedGallery[7].alt || ""}
+            data-aos="fade-up"
           />
         </div>
       </div>
       <Link
         href="/gallery"
         className="mt-2 flex justify-end text-secondary group"
+        data-aos="fade-up"
       >
         See more{" "}
         <img
           src="/arrow-brack-right.svg"
           alt=""
           className="ml-2 group-hover:ml-4 duration-150"
+          data-aos="fade-up"
         />
       </Link>
       {imageIndex !== null && (

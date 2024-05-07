@@ -5,6 +5,8 @@ import { Popup } from "../common/Popup";
 import { urlForImage } from "@/sanity/lib/image";
 import { Image } from "sanity";
 import ImageComponent from "next/image";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 interface IImage {
   image: Image;
@@ -29,6 +31,7 @@ const GalleryComponent: FC<GalleryProps> = ({ images }) => {
               className="h-[210px] md:h-[260px] group relative gallery-image-container
                          outline outline-1 outline-gray-300"
               onClick={() => setImageIndex(index)}
+              data-aos="fade-up"
             >
               <ImageComponent
                 src={urlForImage(d.image)}

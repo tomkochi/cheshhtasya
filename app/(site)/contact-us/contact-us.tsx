@@ -27,20 +27,22 @@ interface ContactProps {
 
 const Contact: FC<ContactProps> = ({ data }) => {
   const [disabled, setDisabled] = useState<boolean>(false);
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState<string>("");
+  const [errorMessage, setErrorMessage] = useState<string>("");
+
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [mobile, setMobile] = useState<string>("");
+  const [pin, setPin] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [corporation, setCorporation] = useState<string>("");
 
   const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (document.getElementById("caorporation").value) {
+    if (corporation) {
       return;
     }
     setDisabled(true);
-    const pName = document.getElementById("name").value;
-    const pEmail = document.getElementById("email").value;
-    const pMobile = document.getElementById("mobile").value;
-    const pPin = document.getElementById("pin").value;
-    const pMessage = document.getElementById("message").value;
     const content = `
       <html>
         <head>
@@ -59,27 +61,23 @@ const Contact: FC<ContactProps> = ({ data }) => {
             <tbody>
               <tr>
                 <td>Name</td>
-                <td>${pName}</td>
-              </tr>
-              <tr>
-                <td>Name</td>
-                <td>${pName}</td>
+                <td>${name}</td>
               </tr>
               <tr>
                 <td>Email</td>
-                <td>${pEmail}</td>
+                <td>${email}</td>
               </tr>
               <tr>
                 <td>Mobile</td>
-                <td>${pMobile}</td>
+                <td>${mobile}</td>
               </tr>
               <tr>
                 <td>PIN</td>
-                <td>${pPin}</td>
+                <td>${pin}</td>
               </tr>
               <tr>
                 <td>Message</td>
-                <td>${pMessage}</td>
+                <td>${message}</td>
               </tr>
             </tbody>
           </table>
@@ -125,6 +123,8 @@ const Contact: FC<ContactProps> = ({ data }) => {
             id="name"
             placeholder="Name"
             disabled={disabled}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             className="w-full h-12 p-4 mb-3 rounded-lg border-[#9D9C9C] border-2 text-lg"
             required
           />
@@ -134,6 +134,8 @@ const Contact: FC<ContactProps> = ({ data }) => {
             id="mobile"
             placeholder="Mobile"
             disabled={disabled}
+            value={mobile}
+            onChange={(e) => setMobile(e.target.value)}
             className="w-full h-12 p-4 mb-3 rounded-lg border-[#9D9C9C] border-2 text-lg"
             required
           />
@@ -143,6 +145,8 @@ const Contact: FC<ContactProps> = ({ data }) => {
             id="email"
             placeholder="Email"
             disabled={disabled}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full h-12 p-4 mb-3 rounded-lg border-[#9D9C9C] border-2 text-lg"
             required
           />
@@ -152,6 +156,8 @@ const Contact: FC<ContactProps> = ({ data }) => {
             id="pin"
             placeholder="Postal code"
             disabled={disabled}
+            value={pin}
+            onChange={(e) => setPin(e.target.value)}
             className="w-full h-12 p-4 mb-3 rounded-lg border-[#9D9C9C] border-2 text-lg"
           />
           <input
@@ -159,6 +165,8 @@ const Contact: FC<ContactProps> = ({ data }) => {
             name="caorporation"
             id="caorporation"
             placeholder="caorporation"
+            value={corporation}
+            onChange={(e) => setCorporation(e.target.value)}
             className="text-primary h-0 outline-none"
             tabIndex={-1}
           />
@@ -167,6 +175,8 @@ const Contact: FC<ContactProps> = ({ data }) => {
             id="message"
             placeholder="Any extra info"
             disabled={disabled}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
             className="h-36 w-full p-4 rounded-lg border-[#9D9C9C] border-2 text-lg resize-none -mt-5"
           ></textarea>
           <div className="text-xs text-secondary">

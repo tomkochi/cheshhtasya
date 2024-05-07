@@ -2,20 +2,29 @@
 
 import { IServices, IService } from "@/app/types/homeTypes";
 import { urlForImage } from "@/sanity/lib/image";
-import { FC } from "react";
+import { FC, useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 interface ServicesProps {
   data: IServices;
 }
 
 const Services: FC<ServicesProps> = ({ data: { service } }) => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   return (
     <div className="w-full max-w-4xl mx-auto px-3 my-14">
-      <h2 className="text-3xl text-primary text-center font-semibold mb-14">
+      <h2
+        className="text-3xl text-primary text-center font-semibold mb-14"
+        data-aos="fade-up"
+      >
         Our Services
       </h2>
       <div className="grid md:grid-cols-2 gap-11">
-        {service.map((d) => {
+        {service.map((d, index: number) => {
           return (
             <Item
               key={d._key}
@@ -33,7 +42,7 @@ const Services: FC<ServicesProps> = ({ data: { service } }) => {
 
 const Item: FC<IService> = ({ icon, heading, description }) => {
   return (
-    <div className="flex gap-5">
+    <div className="flex gap-5" data-aos="fade-up">
       <div>
         <div className="w-[80px]">
           <img src={urlForImage(icon)} alt="" />

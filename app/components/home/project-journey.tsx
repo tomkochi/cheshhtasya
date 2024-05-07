@@ -1,6 +1,8 @@
 "use client";
 
 import { FC } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 interface Data {
   title: string;
@@ -62,7 +64,10 @@ const ProjectJourney: FC = () => {
   return (
     <div className="bg-bg-gray">
       <div className="w-full max-w-5xl mx-auto py-20 px-3">
-        <h3 className="text-3xl text-primary text-center font-semibold mb-14">
+        <h3
+          className="text-3xl text-primary text-center font-semibold mb-14"
+          data-aos="fade-up"
+        >
           Project Journey
         </h3>
         <div className="grid md:grid-cols-2 gap-2 md:gap-11">
@@ -71,6 +76,7 @@ const ProjectJourney: FC = () => {
               <div
                 className="flex flex-col md:flex-row items-center md:items-start gap-5"
                 key={index}
+                data-aos="fade-up"
               >
                 {index > 0 && (
                   <img
