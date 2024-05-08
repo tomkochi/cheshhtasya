@@ -30,11 +30,11 @@ export default async function Home() {
         data={{ ...heroData, whatsappNumber: otherData[0].whatsAppNumber }}
       />
       <Why />
-      <Video id={video?.video} />
-      <Services data={serviceData} />
       <div className="hidden md:block">
         <Gallery data={galleryData} />
       </div>
+      <Video id={video?.video} />
+      <Services data={serviceData} />
       <div className="md:hidden flex justify-center my-10">
         <Link
           href="/gallery"
