@@ -40,6 +40,11 @@ export const other = {
           description: "Include country code (eg: +91)",
         },
         {
+          name: "secondaryPhone",
+          type: "string",
+          description: "Include country code (eg: +91)",
+        },
+        {
           name: "email",
           type: "string",
         },

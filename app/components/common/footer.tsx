@@ -5,6 +5,7 @@ import Image from "next/image";
 
 interface Address {
   contactPhone: string;
+  secondaryPhone: string;
   email: string;
   addressLine1: string;
   addressLine2: string;
@@ -50,6 +51,10 @@ const Footer: FC<FooterProps> = ({ data }) => {
                 <div className="pt-3 flex flex-col md:flex-row gap-x-6">
                   <a href={`tel:${data.address.contactPhone}`}>
                     Tel: {data.address.contactPhone}
+                  </a>
+                  ,{" "}
+                  <a href={`tel:${data.address.contactPhone}`}>
+                    Tel: {data.address.secondaryPhone}
                   </a>
                   <a href={`mailto:${data.address.email}`} target="_blank">
                     Email: {data.address.email}

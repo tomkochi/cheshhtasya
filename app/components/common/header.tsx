@@ -113,7 +113,7 @@ const Menu: FC<MenuProps> = ({ quoteToggle, setShowMenu }) => {
           setShowMenu(false);
         }}
       >
-        FREEE CONSULTATION
+        FREE CONSULTATION
       </button>
     </div>
   );
