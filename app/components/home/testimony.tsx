@@ -22,13 +22,8 @@ const Testimony: FC<TestimonyProps> = ({ data }) => {
       <div className="grid md:grid-cols-3 gap-16">
         {data.map((d: ITestimony, index: number) => {
           return (
-            <div data-aos="fade-up" data-aos-delay={index * 100}>
-              <Says
-                key={index}
-                name={d.name}
-                address={d.address}
-                comment={d.comment}
-              />
+            <div data-aos="fade-up" data-aos-delay={index * 100} key={index}>
+              <Says name={d.name} address={d.address} comment={d.comment} />
             </div>
           );
         })}

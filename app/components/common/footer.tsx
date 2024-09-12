@@ -48,18 +48,18 @@ const Footer: FC<FooterProps> = ({ data }) => {
                 <br />
                 {data.address.addressLine3}
                 <br />
-                <div className="pt-3 flex flex-col md:flex-row gap-x-6">
+                <div className="pt-3 flex gap-x-2">
                   <a href={`tel:${data.address.contactPhone}`}>
                     Tel: {data.address.contactPhone}
                   </a>
                   ,{" "}
-                  <a href={`tel:${data.address.contactPhone}`}>
-                    Tel: {data.address.secondaryPhone}
-                  </a>
-                  <a href={`mailto:${data.address.email}`} target="_blank">
-                    Email: {data.address.email}
+                  <a href={`tel:${data.address.secondaryPhone}`}>
+                    {data.address.secondaryPhone}
                   </a>
                 </div>
+                <a href={`mailto:${data.address.email}`} target="_blank">
+                  Email: {data.address.email}
+                </a>
               </div>
             ) : (
               <></>

@@ -9,6 +9,7 @@ interface Address {
   addressLine2: string;
   addressLine3: string;
   contactPhone: string;
+  secondaryPhone: string;
   email: string;
 }
 
@@ -231,14 +232,18 @@ const Contact: FC<ContactProps> = ({ data }) => {
                 <br />
                 {data[0].address.addressLine3}
                 <br />
-                <div className="flex flex-col mt-2">
+                <div className="flex flex-col md:flex-row mt-2 gap-x-2">
                   <a href={`tel:${data[0].address.contactPhone}`}>
                     Tel: {data[0].address.contactPhone}
                   </a>
-                  <a href={`mailto:${data[0].address.email}`}>
-                    Email: {data[0].address.email}
+                  ,{" "}
+                  <a href={`tel:${data[0].address.secondaryPhone}`}>
+                    {data[0].address.secondaryPhone}
                   </a>
                 </div>
+                <a href={`mailto:${data[0].address.email}`}>
+                  Email: {data[0].address.email}
+                </a>
               </div>
             </div>
             <div className="w-full md:w-[222px] rounded-lg overflow-hidden relative after:absolute after:left-0 after:top-0 after:w-full after:h-full after:bg-white after:bg-opacity-50">

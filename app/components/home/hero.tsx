@@ -34,9 +34,9 @@ const Hero: FC<HeroProps> = ({ data: { caption, image, whatsappNumber } }) => {
           </h1>
         </div>
         <a
-          href={`https://wa.me/${whatsappNumber}`}
+          href={`https://wa.me/${whatsappNumber.replace(/\s+/g, "")}`}
           target="_blank"
-          className="absolute right-4 bottom-3 w-[40px] md:w-[52px] hover:grayscale-[0.5] duration-150 hover: shadow-xl"
+          className="absolute right-4 bottom-3 hover:grayscale-[0.5] duration-50 hover:shadow-xl"
         >
           <Image
             src="/whatsapp-icon.svg"

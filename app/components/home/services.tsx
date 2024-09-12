@@ -24,7 +24,7 @@ const Services: FC<ServicesProps> = ({ data: { service } }) => {
         Our Services
       </h2>
       <div className="grid md:grid-cols-2 gap-11">
-        {service.map((d, index: number) => {
+        {service.map((d) => {
           return (
             <Item
               key={d._key}

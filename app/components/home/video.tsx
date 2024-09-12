@@ -37,38 +37,13 @@ const Video: FC<VideoProps> = ({ id }) => {
               }&mute=1&rel=0`}
               title="YouTube video player"
               frameBorder="0"
-              allow="accelerometer; autoplay; muted; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
           </div>
         </div>
       </InView>
     </div>
-    // <div className="w-full">
-    //   <InView
-    //     as="div"
-    //     onChange={handleIntersection}
-    //     delay={100}
-    //     initialInView={false}
-    //     threshold={0.8}
-    //     trackVisibility={true}
-    //   >
-    //     <div className="aspect-w-16 aspect-h-9">
-    //       <video
-    //         ref={videoRef}
-    //         className="object-contain w-full h-full"
-    //         autoPlay={false}
-    //         muted
-    //         playsInline
-    //         loop
-    //         controls
-    //       >
-    //         <source src="/video.mp4" type="video/mp4" />
-    //         Your browser does not support the video tag.
-    //       </video>
-    //     </div>
-    //   </InView>
-    // </div>
   );
 };
 
