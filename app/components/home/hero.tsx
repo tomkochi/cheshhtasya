@@ -39,7 +39,7 @@ const Hero: FC<HeroProps> = ({ data: { caption, image, whatsappNumber } }) => {
           className="absolute right-4 bottom-3 hover:grayscale-[0.5] duration-50 hover:shadow-xl"
         >
           <Image
-            src="/whatsapp-icon.svg"
+            src="/wa.svg"
             width={52}
             height={52}
             alt="whatsApp icon"

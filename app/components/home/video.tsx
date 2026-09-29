@@ -18,7 +18,7 @@ const Video: FC<VideoProps> = ({ id }) => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full md:px-6">
       <InView
         as="div"
         onChange={handleIntersection}

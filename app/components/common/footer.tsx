@@ -14,6 +14,7 @@ interface Address {
 
 interface Data {
   address: Address;
+  instagramLink?: string;
   youtubeChannel: string;
   location: string;
   facebookLink: string;
@@ -33,7 +34,7 @@ const Footer: FC<FooterProps> = ({ data }) => {
           <div className="py-2">
             <div className="flex justify-center md:justify-start">
               <Image
-                src="/cheshhtasya-logo-full.svg"
+                src="/cheshhtasya-logo-name.svg"
                 width={164}
                 height={106}
                 className="w-[120px] md:w-[164px]"
@@ -51,8 +52,7 @@ const Footer: FC<FooterProps> = ({ data }) => {
                 <div className="pt-3 flex gap-x-2">
                   <a href={`tel:${data.address.contactPhone}`}>
                     Tel: {data.address.contactPhone}
-                  </a>
-                  ,{" "}
+                  </a>,{" "}
                   <a href={`tel:${data.address.secondaryPhone}`}>
                     {data.address.secondaryPhone}
                   </a>
@@ -67,6 +67,21 @@ const Footer: FC<FooterProps> = ({ data }) => {
           </div>
           {data ? (
             <div className="flex gap-4 self-center md:self-end py-3 mb-4">
+              {data.instagramLink && (
+                <a
+                  href={data.instagramLink}
+                  className="hover:opacity-65 duration-150"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src="/ig.svg"
+                    width={35}
+                    height={35}
+                    alt="instagram logo"
+                  />
+                </a>
+              )}
               <a
                 href={data.facebookLink}
                 className="hover:opacity-65 duration-150"
@@ -90,7 +105,7 @@ const Footer: FC<FooterProps> = ({ data }) => {
                 />
               </a>
               <a
-                href={data.whatsAppNumber}
+                href={`https://wa.me/${data.whatsAppNumber}`}
                 className="hover:opacity-65 duration-150"
               >
                 <Image

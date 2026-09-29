@@ -13,7 +13,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Chesshtasya",
+  title: "Cheshhtasya",
   description:
     "Discover transformative interior design and branding expertise with Cheshhtasya. From innovative renovations to meticulous signage solutions, our team crafts spaces that resonate. Experience the fusion of creativity and functionality. Contact us today!",
 };

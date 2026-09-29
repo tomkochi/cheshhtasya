@@ -14,6 +14,11 @@ export const other = {
       type: "string",
     },
     {
+      name: "instagramLink",
+      title: "Instagram link",
+      type: "string",
+    },
+    {
       name: "facebookLink",
       type: "string",
     },

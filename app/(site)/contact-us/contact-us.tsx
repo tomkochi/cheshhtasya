@@ -96,7 +96,7 @@ const Contact: FC<ContactProps> = ({ data }) => {
       .then((r) => {
         if (r.data.success) {
           setSuccessMessage(
-            "Thank you for contacting Chesshtasya!! Our represeentative will talk to you soon."
+            "Thank you for contacting Cheshhtasya!! Our represeentative will talk to you soon."
           );
         } else {
           setErrorMessage("Something went wrong.<br/>Please try again later.");
