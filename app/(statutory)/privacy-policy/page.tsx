@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Read Cheshhtasya's privacy policy regarding data collection, confidentiality, and security.",
+};
+
 const PrivacyPolicy = () => {
   return (
     <div className="w-full max-w-xl mx-auto my-32 text-secondary portable-style px-4">

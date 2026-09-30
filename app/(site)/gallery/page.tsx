@@ -1,6 +1,13 @@
 import React, { FC } from "react";
+import type { Metadata } from "next";
 import { getGallery } from "@/sanity/utils/fetchGallery";
 import GalleryComponent from "../../components/gallery/gallery";
+
+export const metadata: Metadata = {
+  title: "Gallery",
+  description:
+    "Browse our portfolio showcasing completed interior design projects, commercial transformations, and branding executions.",
+};
 
 const Gallery: FC = async () => {
   const data = await getGallery();

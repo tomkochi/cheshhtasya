@@ -12,10 +12,75 @@ const roboto = Roboto({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.cheshhtasya.com";
+
 export const metadata: Metadata = {
-  title: "Cheshhtasya",
+  metadataBase: new URL(siteUrl),
+
+  title: {
+    default: "Cheshhtasya | Interior Design & Branding",
+    template: "%s | Cheshhtasya",
+  },
+
   description:
     "Discover transformative interior design and branding expertise with Cheshhtasya. From innovative renovations to meticulous signage solutions, our team crafts spaces that resonate. Experience the fusion of creativity and functionality. Contact us today!",
+
+  applicationName: "Cheshhtasya",
+
+  authors: [{ name: "Cheshhtasya" }],
+  creator: "Cheshhtasya",
+  publisher: "Cheshhtasya",
+
+  icons: {
+    icon: [
+      { url: "/icon.png", sizes: "any" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
+
+  alternates: {
+    canonical: "/",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: siteUrl,
+    siteName: "Cheshhtasya",
+    title: "Cheshhtasya | Interior Design & Branding",
+    description:
+      "Transformative interior design, renovations, branding and signage solutions by Cheshhtasya.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Cheshhtasya – Interior Design & Branding",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Cheshhtasya | Interior Design & Branding",
+    description:
+      "Transformative interior design, renovations, branding and signage solutions by Cheshhtasya.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default async function RootLayout({

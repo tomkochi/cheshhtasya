@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Use",
+  description:
+    "Read the terms of use for accessing and interacting with Cheshhtasya's website and services.",
+};
+
 const TermsOfUse = () => {
   return (
     <div className="w-full max-w-xl mx-auto my-32 text-secondary portable-style px-4">

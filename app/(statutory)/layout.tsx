@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "../globals.css";
+import Header from "../components/common/header";
+import Footer from "../components/common/footer";
 import { getOther } from "@/sanity/utils/fetchOther";
 
 const roboto = Roboto({
@@ -10,7 +12,7 @@ const roboto = Roboto({
   display: "swap",
 });
 
-const siteUrl = "https://www.cheshhtasya.com"; // change to actual domain
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.cheshhtasya.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -33,6 +35,15 @@ export const metadata: Metadata = {
 
   creator: "Cheshhtasya",
   publisher: "Cheshhtasya",
+
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/icon.png",
+  },
 
   alternates: {
     canonical: "/",
@@ -76,3 +87,23 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
 };
+
+export default async function StatutoryLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const data = await getOther();
+  const otherData = (data as any[]).filter((d) => d._type === "other")[0];
+  return (
+    <html lang="en">
+      <body className={roboto.className}>
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <div className="grow">{children}</div>
+          <Footer data={otherData} />
+        </div>
+      </body>
+    </html>
+  );
+}

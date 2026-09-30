@@ -1,8 +1,15 @@
 import { urlForImage } from "@/sanity/lib/image";
 import { getServices } from "@/sanity/utils/fetchServices";
 import { PortableText } from "@portabletext/react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { FC } from "react";
+
+export const metadata: Metadata = {
+  title: "Our Services",
+  description:
+    "Explore our comprehensive interior design, renovation, branding, and signage services tailored for residential and commercial spaces.",
+};
 
 interface PortableTextMarkComponentProps<T> {
   children: React.ReactNode;

@@ -1,8 +1,15 @@
 import { urlForImage } from "@/sanity/lib/image";
 import { getAbout } from "@/sanity/utils/fetchAbout";
 import { PortableText } from "@portabletext/react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { FC } from "react";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Learn about Cheshhtasya's vision, interior design expertise, and commitment to creating transformative spaces.",
+};
 
 interface PortableTextMarkComponentProps<T> {
   children: React.ReactNode;
